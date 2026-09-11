@@ -25,3 +25,16 @@ Thumbs.db
 .classpath
 .project
 .settings/
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build files
+dist/
+
+# Logs
+*.log
