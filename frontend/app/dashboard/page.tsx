@@ -1,5 +1,16 @@
-const DashboardPage = () => {
-    return <div>DashboardPage</div>
-}
+"use client";
 
-export default DashboardPage
+import { RequireAuth } from "@/components/providers/require-auth";
+import { AppShell } from "@/components/layout/app-shell";
+
+export default function DashboardPage() {
+  return (
+    <RequireAuth>
+      <AppShell hideHeader>
+        <div className="flex min-h-svh items-center justify-center">
+            <h1 className="text-2x1 font-bold">Welcome to RepoMind</h1>
+        </div>
+      </AppShell>
+    </RequireAuth>
+  );
+}

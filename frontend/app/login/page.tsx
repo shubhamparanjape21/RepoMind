@@ -20,6 +20,7 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { getGithubLoginUrl } from '@/lib/api';
+import { useCurrentUser } from '@/hooks/use-auth';
 
 function LoginLoading(){
     return (
@@ -34,14 +35,14 @@ const LoginContent = () => {
   const router = useRouter();
   const error = params.get("error");
   const next = params.get("next") || "/dashboard";
-  //const { data: user, isLoading } = useCurrentUser();
+  const { data: user, isLoading } = useCurrentUser();
 
-  const user = null;
-  const isLoading = false;
+  useEffect(() => {
+    if (!isLoading && user) {
+      router.replace(next.startsWith("/") ? next : "/dashboard");
+    }
+  }, [user, isLoading, next, router]);
 
-  if(isLoading || user){
-    return <LoginLoading/>
-  }
 
   return (
    <div className="relative flex min-h-svh flex-col overflow-hidden bg-background">
