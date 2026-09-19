@@ -1,3 +1,5 @@
+export type IndexStatus = "PENDING" | "INDEXING" | "READY" | "FAILED";
+
 export type User = {
     id: string;
     githubId: number;
