@@ -91,7 +91,7 @@ public class Repository {
     private Instant createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false, insertable = false)
+    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
 }

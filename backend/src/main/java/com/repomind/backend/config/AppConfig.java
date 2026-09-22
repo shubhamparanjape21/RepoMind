@@ -12,12 +12,12 @@ import org.springframework.web.client.RestClient;
 @EnableAsync
 public class AppConfig {
 	@Bean
-    RestClient.Builder restClientBuilder() {
+    public RestClient.Builder restClientBuilder() {
         return RestClient.builder();
     }
 
     @Bean(name = "indexingExecutor")
-    Executor indexingExecutor() {
+    public Executor indexingExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(4);
